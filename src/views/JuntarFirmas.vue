@@ -16,24 +16,8 @@
                           body-classes="px-lg-5 py-lg-5"
                           class="border-0">
                         <template>
-                            <div class="text-muted text-center mb-3">
-                                <small>Firma con</small>
-                            </div>
-                            <div class="btn-wrapper text-center">
-                                <base-button type="neutral">
-                                    <img slot="icon" src="img/icons/common/facebook.svg">
-                                    Facebook
-                                </base-button>
-
-                                <base-button type="neutral">
-                                    <img slot="icon" src="img/icons/common/google.svg">
-                                    Google
-                                </base-button>
-                            </div>
-                        </template>
-                        <template>
                             <div class="text-center text-muted mb-4">
-                                <small>O ingrese los siguientes datos</small>
+                                <small>Ingresa tus datos</small>
                             </div>
                             <form role="form">
                                 <base-input alternative
@@ -46,7 +30,25 @@
                                             addon-left-icon="" v-model="dni">
                                 </base-input>
 
+                                <!-- ############### Social network buttons ############-->
+                                <div class="text-muted text-center mb-3">
+                                    <small>Y firmá con</small>
+                                </div>
+                                <div class="btn-wrapper text-center">
+                                    <base-button type="neutral">
+                                        <img slot="icon" src="img/icons/common/facebook.svg">
+                                        Facebook
+                                    </base-button>
+
+                                    <base-button type="neutral">
+                                        <img slot="icon" src="img/icons/common/google.svg">
+                                        Google
+                                    </base-button>
+                                </div>
+                                <!-- ###################################################-->
+
                                 <div class="text-center">
+                                    <small>O sin redes sociales:    </small>
                                     <base-button type="primary" class="my-4" @click="processForm">Firmar</base-button>
                                 </div>
                             </form>
