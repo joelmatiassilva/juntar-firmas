@@ -39,7 +39,7 @@
                                 <base-input alternative
                                             class="mb-3"
                                             placeholder="Nombre"
-                                            addon-left-icon=""  v-model="nombre" >
+                                            addon-left-icon=""  v-model="name" >
                                 </base-input>
                                 <base-input alternative
                                             placeholder="DNI"
@@ -64,16 +64,26 @@ export default {
   name: 'JuntarFirmas',
   data: function() {
     return {
-      nombre: '',
-      dni: ''
+      name: '',
+      dni: '',
+      sn: '',
+      sn_id: '',
+      sn_name: '',
+      email: '',
+      img_url: '',
+      url_post_petition: 'https://www.acvi.org.ar/sign_petition'
     }
   },
   methods: {
     processForm () {
-      console.log({ nombre: this.nombre, dni: this.dni })
-      // alert('Processing!')
-      // Make a request for a user with a given ID
-      axios.get('/user?ID=12345')
+      let axiosConfig = {
+        headers: {
+            'Content-Type': 'application/json;charset=UTF-8',
+            'Access-Control-Allow-Origin': "*",
+            'withCredentials': true
+        }
+      };
+      axios.post(this.url_post_petition, postData, axiosConfig)
         .then(function (response) {
           // handle success
           console.log(response);
