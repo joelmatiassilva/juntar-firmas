@@ -17,11 +17,14 @@ export const request = (method, uri, data = null) => {
   } else {
     url = 'http://' + window.location.host + '/api' + uri
   }
-  return axios({ method, url, data })
+  console.log('no pasa por aca')
+  return axios({headers: {'X-Access-Control-Allow-Origin': '*'}, method, url, data })
 }
 
 export const setAuthHeader = (request, authHeader) => {
   request.headers.Authorization = authHeader
+  console.log(request.headers)
+  request.headers['Access-Control-Allow-Origin'] = '*'
 }
 
 export const setTrailingSpace = request => {
