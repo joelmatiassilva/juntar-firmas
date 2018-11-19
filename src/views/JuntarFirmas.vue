@@ -23,11 +23,11 @@
                                 <base-input alternative
                                             class="mb-3"
                                             placeholder="Nombre"
-                                            addon-left-icon=""  v-model="postData.name" id="name" >
+                                            addon-left-icon=""  v-model="postData.name" id="name" :required="true">
                                 </base-input>
                                 <base-input alternative
                                             placeholder="DNI"
-                                            addon-left-icon="" v-model="postData.dni" id="dni" >
+                                            addon-left-icon="" v-model="postData.dni" id="dni" :required="true">
                                 </base-input>
 
                                 <!-- ############### Social network buttons ############-->
@@ -84,12 +84,20 @@ export default {
   },
   methods: {
     onSignInFacebook () {
-      console.log('onSignInFacebook')
-      fb_login();
+      console.log('onSignInFacebook: ' + this.postData.name)
+      if (this.postData.name !== '' && this.postData.dni !== '') {
+        fb_login();
+      } else {
+        console.log('no tiene dni')
+      }
     },
     onSignInGoogle () {
-      console.log('onSignInGoogle')
-      onSignIn();
+      console.log('onSignInGoogle: ' + this.postData.name)
+      if (this.postData.name !== '' && this.postData.dni !== '') {
+        onSignIn();
+      } else {
+        console.log('no tiene dni')
+      }
     },
     processForm () {
       let axiosConfig = {
@@ -99,18 +107,22 @@ export default {
             'withCredentials': true
         }
       };
-      axios.post(this.url_post_petition, this.postData, axiosConfig)
-        .then(function (response) {
-          // handle success
-          console.log(response);
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error);
-        })
-        .then(function () {
-          // always executed
-        });
+      if (this.postData.name !== '' && this.postData.dni !== '') {
+        axios.post(this.url_post_petition, this.postData, axiosConfig)
+          .then(function (response) {
+            // handle success
+            console.log(response);
+          })
+          .catch(function (error) {
+            // handle error
+            console.log(error);
+          })
+          .then(function () {
+            // always executed
+          });
+      } else {
+        console.log('no tiene dni')
+      }
     }
   }
 
