@@ -7,6 +7,8 @@
     <meta name="description" content="Start your development with a Design System for Bootstrap 4 and Vue.js.">
     <meta name="author" content="Creative Tim, Cristi Jora">
     <link rel="icon" href="<%= BASE_URL %>favicon.png">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="743011207515-6a7frj1nj1h7johnh6edhfk5u4q913u0.apps.googleusercontent.com">
     <title>Vue Argon Design System</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
@@ -18,4 +20,12 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  <script>
+  window.onload = function(){
+  // your code here
+  gapi.load('auth2', function() {console.log('listo auth2')});
+  };
+  </script>
 </html>

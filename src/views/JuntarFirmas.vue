@@ -23,11 +23,11 @@
                                 <base-input alternative
                                             class="mb-3"
                                             placeholder="Nombre"
-                                            addon-left-icon=""  v-model="name" >
+                                            addon-left-icon=""  v-model="postData.name" >
                                 </base-input>
                                 <base-input alternative
                                             placeholder="DNI"
-                                            addon-left-icon="" v-model="dni">
+                                            addon-left-icon="" v-model="postData.dni">
                                 </base-input>
 
                                 <!-- ############### Social network buttons ############-->
@@ -35,12 +35,12 @@
                                     <small>Y firmá con</small>
                                 </div>
                                 <div class="btn-wrapper text-center">
-                                    <base-button type="neutral">
+                                    <base-button type="neutral" v-on:click="onSignInFacebook">
                                         <img slot="icon" src="img/icons/common/facebook.svg">
                                         Facebook
                                     </base-button>
 
-                                    <base-button type="neutral">
+                                    <base-button type="neutral" v-on:click="onSignInGoogle">
                                         <img slot="icon" src="img/icons/common/google.svg">
                                         Google
                                     </base-button>
@@ -66,19 +66,28 @@ export default {
   name: 'JuntarFirmas',
   data: function() {
     return {
-      name: '',
-      dni: '',
-      sn: '',
-      sn_id: '',
-      sn_name: '',
-      email: '',
-      img_url: '',
+      postData: {
+        name: '',
+        dni: '',
+        sn: 'GL',
+        sn_id: '110571074087821111948',
+        sn_name: 'asdfasdf',
+        email: 'joel@joel',
+        img_url: 'https://lh3.googleusercontent.com/-Hmd4j5OE1AU/AAAAAAAAAAI/AAAAAAAAAD4/uLA5kfYFGUo/s96-c/photo.jpg'
+      },
       url_post_petition: 'https://www.acvi.org.ar/sign_petition'
     }
   },
   methods: {
+    onSignInFacebook () {
+      console.log('vue method face')
+      fb_login();
+    },
+    onSignInGoogle () {
+      console.log('vue method google')
+      onSignIn();
+    },
     processForm () {
-      hola();
       let axiosConfig = {
         headers: {
             'Content-Type': 'application/json;charset=UTF-8',
@@ -86,14 +95,7 @@ export default {
             'withCredentials': true
         }
       };
-      let postData ={ name: '',
-            dni: '',
-            sn: '',
-            sn_id: '',
-            sn_name: '',
-            email: '',
-            img_url: ''}
-      axios.post(this.url_post_petition, postData, axiosConfig)
+      axios.post(this.url_post_petition, this.postData, axiosConfig)
         .then(function (response) {
           // handle success
           console.log(response);
@@ -258,22 +260,29 @@ export default {
       ////////////////////////////////////////////////////////////////////////////
       var a2;
 
-      function onSignIn(googleUser) {
-
+      function onSignIn() {
+      console.log('google method')
         // Check input fields ////////////////////////////////////////////////////
+        /*
+        JOEL
         var form = document.getElementById("notification_form")
         if (form.name.value == "" || form.dni.value == ""){
           toastr.error("Por favor completa los campos Nombre y DNI para firmar");
           return false
         }
+        */
 
 //        gapi.load('auth2', function() {
-          auth2 = gapi.auth2.init({
+          console.log('init google');
+          console.log(gapi);
+          let auth2 = gapi.auth2.init({
             client_id: '743011207515-6a7frj1nj1h7johnh6edhfk5u4q913u0.apps.googleusercontent.com',
             fetch_basic_profile: true,
             scope: 'email'
           });
+          console.log('listo')
           a2 = auth2;
+          console.log(a2);
 
           // Sign the user in, and then retrieve their ID.
           auth2.signIn().then(function() {
