@@ -1,7 +1,7 @@
 <template>
     <header class="header-global">
         <base-nav class="navbar-main" transparent type="" effect="light" expand>
-        <!--
+
             <a slot="brand" class="navbar-brand mr-lg-5" href="https://demos.creative-tim.com/vue-argon-design-system/documentation">
                 <img src="img/brand/white.png">
             </a>
@@ -16,8 +16,6 @@
                     <close-button @click="closeMenu"></close-button>
                 </div>
             </div>
-          -->
-<!--
             <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
                 <base-dropdown class="nav-item" menu-classes="dropdown-menu-xl">
                     <a slot="title" href="#" class="nav-link" data-toggle="dropdown" role="button">
@@ -99,7 +97,6 @@
                     </a>
                 </li>
             </ul>
-          -->
         </base-nav>
     </header>
 </template>

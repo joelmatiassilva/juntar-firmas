@@ -35,7 +35,7 @@ export default new Router({
       path: "/",
       name: "juntar-firmas",
       components: {
-        //header: AppHeader,
+        header: AppHeader,
         default: JuntarFirmas,
         //footer: AppFooter
       }
