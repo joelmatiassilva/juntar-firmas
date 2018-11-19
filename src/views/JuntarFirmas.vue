@@ -51,6 +51,7 @@
                                     <small>O sin redes sociales:    </small>
                                     <base-button type="primary" class="my-4" @click="processForm">Firmar</base-button>
                                 </div>
+                                <div id="status"><small>No firmaste todavia</small></div>
                             </form>
                         </template>
                     </card>
