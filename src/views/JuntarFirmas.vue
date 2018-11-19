@@ -8,7 +8,7 @@
         <div class="container">
           <div class="row">
               <div class="col">
-                <object width="500" height="500" data="pdf/proyecto2018.pdf"></object>
+                <object width="500" height="500" data="static/dist/pdf/proyecto2018.pdf"></object>
               </div>
                 <div class="col">
                     <card type="secondary" shadow
@@ -36,12 +36,12 @@
                                 </div>
                                 <div class="btn-wrapper text-center">
                                     <base-button type="neutral" v-on:click="onSignInFacebook">
-                                        <img slot="icon" src="img/icons/common/facebook.svg">
+                                        <img slot="icon" src="static/dist/img/icons/common/facebook.svg">
                                         Facebook
                                     </base-button>
 
                                     <base-button type="neutral" v-on:click="onSignInGoogle">
-                                        <img slot="icon" src="img/icons/common/google.svg">
+                                        <img slot="icon" src="static/dist/img/icons/common/google.svg">
                                         Google
                                     </base-button>
                                 </div>
@@ -211,18 +211,18 @@ export default {
     function fb_login(){
       var mydata;
       var user_id;
-
+      var user_email;
 
       FB.login(function(response) {
 
           if (response.authResponse) {
               console.log('Welcome!  Fetching your information.... ');
               //console.log(response); // dump complete info
-              access_token = response.authResponse.accessToken; //get access token
+              //access_token = response.authResponse.accessToken; //get access token
               user_id = response.authResponse.userID; //get FB UID
 
               FB.api('/me', function(response) {
-                  user_email = response.email; //get user email
+                  var user_email = response.email; //get user email
                   // you can store this data into your database
                   console.log(response);
                   mydata = response;
