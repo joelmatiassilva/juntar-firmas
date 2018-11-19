@@ -211,7 +211,7 @@ export default {
     function fb_login(){
       var mydata;
       var user_id;
-
+      var user_email;
 
       FB.login(function(response) {
 
@@ -222,7 +222,7 @@ export default {
               user_id = response.authResponse.userID; //get FB UID
 
               FB.api('/me', function(response) {
-                  user_email = response.email; //get user email
+                  var user_email = response.email; //get user email
                   // you can store this data into your database
                   console.log(response);
                   mydata = response;
