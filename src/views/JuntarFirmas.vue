@@ -23,11 +23,11 @@
                                 <base-input alternative
                                             class="mb-3"
                                             placeholder="Nombre"
-                                            addon-left-icon=""  v-model="postData.name" id="name">
+                                            addon-left-icon=""  v-model="postData.name" id="name" >
                                 </base-input>
                                 <base-input alternative
                                             placeholder="DNI"
-                                            addon-left-icon="" v-model="postData.dni" id="dni">
+                                            addon-left-icon="" v-model="postData.dni" id="dni" >
                                 </base-input>
 
                                 <!-- ############### Social network buttons ############-->
@@ -44,6 +44,9 @@
                                         <img slot="icon" src="img/icons/common/google.svg">
                                         Google
                                     </base-button>
+                                </div>
+                              </br>
+                                <div class="text-center" id="image">
                                 </div>
                                 <!-- ###################################################-->
 
