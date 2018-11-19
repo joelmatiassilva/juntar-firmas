@@ -23,11 +23,11 @@
                                 <base-input alternative
                                             class="mb-3"
                                             placeholder="Nombre"
-                                            addon-left-icon=""  v-model="postData.name" >
+                                            addon-left-icon=""  v-model="postData.name" id="name">
                                 </base-input>
                                 <base-input alternative
                                             placeholder="DNI"
-                                            addon-left-icon="" v-model="postData.dni">
+                                            addon-left-icon="" v-model="postData.dni" id="dni">
                                 </base-input>
 
                                 <!-- ############### Social network buttons ############-->
@@ -69,22 +69,22 @@ export default {
       postData: {
         name: '',
         dni: '',
-        sn: 'GL',
-        sn_id: '110571074087821111948',
-        sn_name: 'asdfasdf',
-        email: 'joel@joel',
-        img_url: 'https://lh3.googleusercontent.com/-Hmd4j5OE1AU/AAAAAAAAAAI/AAAAAAAAAD4/uLA5kfYFGUo/s96-c/photo.jpg'
+        sn: '',
+        sn_id: '',
+        sn_name: '',
+        email: '',
+        img_url: ''
       },
       url_post_petition: 'https://www.acvi.org.ar/sign_petition'
     }
   },
   methods: {
     onSignInFacebook () {
-      console.log('vue method face')
+      console.log('onSignInFacebook')
       fb_login();
     },
     onSignInGoogle () {
-      console.log('vue method google')
+      console.log('onSignInGoogle')
       onSignIn();
     },
     processForm () {
@@ -215,8 +215,9 @@ export default {
 
 
                   // PARA CUANDO TENGA MAIL //var data = "&sn=FB" + "&id=" + user_id + "&email=" + mydata.email;
-                  var data = "&sn=FB" + "&sn_name=" + _name + "&sn_id=" + _id;
-                  var full_data = $('#notification_form').serialize() + data
+                  //JOEL: TOMAR EL NOMBRE Y EL DNI
+                  var data = "name=" + $('#name').val() + "&dni=" + $('#dni').val() + "&sn=FB" + "&sn_name=" + _name + "&sn_id=" + _id;
+                  var full_data = data
 
                   $.ajax({
                       url: '/sign_petition',
@@ -307,9 +308,9 @@ export default {
             var src = document.getElementById("image");
             src.appendChild(img);
 
-
-            var data = "&sn=GL" + "&sn_id=" + profile.getId() + "&sn_name=" + profile.getName() + "&email=" + profile.getEmail() + "&img_url=" + profile.getImageUrl();
-            var full_data = $('#notification_form').serialize() + data
+            //JOEL: TOMAR EL DNI Y EL NOMBRE
+            var data = "name=" + $('#name').val() + "&dni=" + $('#dni').val() + "&sn=GL" + "&sn_id=" + profile.getId() + "&sn_name=" + profile.getName() + "&email=" + profile.getEmail() + "&img_url=" + profile.getImageUrl();
+            var full_data = data
 
 
 
