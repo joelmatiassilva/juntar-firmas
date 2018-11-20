@@ -1,8 +1,8 @@
 <template>
     <section class="section section-shaped section-lg my-0">
-        <div class="shape shape-style-1 bg-gradient-default">
+        <div class="shape shape-style-1 bg-gradient-default-acvi">
           <!-- section section-shaped section-lg my-0 -->
-          <!-- shape shape-style-1 bg-gradient-default -->
+          <!-- shape shape-style-1 bg-gradient-default-acvi -->
 
         </div>
 
@@ -365,4 +365,11 @@ export default {
 
 </script>
 <style>
+.bg-gradient-default-acvi {
+    background: #379c6a !important;
+    
+}
+.row {
+<!--    background: url(http://www.specim.fi/wp-content/uploads/2016/02/cannabis-1600x600-1600x600.jpg) -->
+}
 </style>
