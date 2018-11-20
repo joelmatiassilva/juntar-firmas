@@ -5,10 +5,17 @@
           <!-- shape shape-style-1 bg-gradient-default -->
 
         </div>
+
+
+                    <div class="col-lg text-center">
+                        <p class="lead text-white mt-4 mb-5">Lee y sumá tu apoyo al proyecto de ley de control y regulación estatal del cannabis psicoactivo.</p>
+                    </div>
+
         <div class="container">
           <div class="row">
               <div class="col">
-                <object width="500" height="500" data="static/dist/pdf/proyecto2018.pdf"></object>
+<!--                <object width="500" height="500" data="static/dist/pdf/proyecto2018.pdf"></object>  -->
+                    <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://www.acvi.org.ar/static/dist/pdf/proyecto2018.pdf" width="500" height="650">
               </div>
                 <div class="col">
                     <card type="secondary" shadow

@@ -2,14 +2,14 @@
     <header class="header-global">
         <base-nav class="navbar-main" transparent type="" effect="light" expand>
 
-            <a slot="brand" class="navbar-brand mr-lg-5" href="https://demos.creative-tim.com/vue-argon-design-system/documentation">
-                <img src="img/brand/white.png">
+            <a slot="brand" class="navbar-brand mr-lg-5" href="https://www.acvi.org.ar">
+                <img src="static/dist/img/brand/logo_blanco.png" style="width: 100px; height: 89px;" class="img-fluid">
             </a>
 
             <div class="row" slot="content-header" slot-scope="{closeMenu}">
                 <div class="col-6 collapse-brand">
                     <a href="https://demos.creative-tim.com/vue-argon-design-system/documentation/">
-                        <img src="img/brand/blue.png">
+                        <img src="static/dist/img/brand/blue.png">
                     </a>
                 </div>
                 <div class="col-6 collapse-close">
@@ -20,7 +20,7 @@
                 <base-dropdown class="nav-item" menu-classes="dropdown-menu-xl">
                     <a slot="title" href="#" class="nav-link" data-toggle="dropdown" role="button">
                         <i class="ni ni-ui-04 d-lg-none"></i>
-                        <span class="nav-link-inner--text">Components</span>
+                        <span class="nav-link-inner--text"></span>
                     </a>
                     <div class="dropdown-menu-inner">
                         <a href="https://demos.creative-tim.com/vue-argon-design-system/documentation/"
@@ -50,7 +50,7 @@
                 <base-dropdown tag="li" class="nav-item">
                     <a slot="title" href="#" class="nav-link" data-toggle="dropdown" role="button">
                         <i class="ni ni-collection d-lg-none"></i>
-                        <span class="nav-link-inner--text">Examples</span>
+                        <span class="nav-link-inner--text"></span>
                     </a>
                     <router-link to="/landing" class="dropdown-item">Landing</router-link>
                     <router-link to="/profile" class="dropdown-item">Profile</router-link>
@@ -60,26 +60,27 @@
             </ul>
             <ul class="navbar-nav align-items-lg-center ml-lg-auto">
                 <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank"
+                    <a class="nav-link nav-link-icon" href="https://www.facebook.com/acvi.ciudad/" target="_blank"
                        data-toggle="tooltip" title="Like us on Facebook">
                         <i class="fa fa-facebook-square"></i>
                         <span class="nav-link-inner--text d-lg-none">Facebook</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="https://www.instagram.com/creativetimofficial"
+                    <a class="nav-link nav-link-icon" href="https://www.instagram.com/acviolenciainstitucional/"
                        target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
                         <i class="fa fa-instagram"></i>
                         <span class="nav-link-inner--text d-lg-none">Instagram</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-link-icon" href="https://twitter.com/creativetim" target="_blank"
+                    <a class="nav-link nav-link-icon" href="https://twitter.com/acvi_" target="_blank"
                        data-toggle="tooltip" title="Follow us on Twitter">
                         <i class="fa fa-twitter-square"></i>
                         <span class="nav-link-inner--text d-lg-none">Twitter</span>
                     </a>
                 </li>
+<!--
                 <li class="nav-item">
                     <a class="nav-link nav-link-icon" href="https://github.com/creativetimofficial/vue-argon-design-system"
                        target="_blank" data-toggle="tooltip" title="Star us on Github">
@@ -87,6 +88,8 @@
                         <span class="nav-link-inner--text d-lg-none">Github</span>
                     </a>
                 </li>
+-->
+<!--
                 <li class="nav-item d-none d-lg-block ml-lg-4">
                     <a href="https://www.creative-tim.com/product/vue-argon-design-system" target="_blank"
                        class="btn btn-neutral btn-icon">
@@ -96,6 +99,7 @@
                         <span class="nav-link-inner--text">Download</span>
                     </a>
                 </li>
+-->
             </ul>
         </base-nav>
     </header>
