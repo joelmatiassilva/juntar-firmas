@@ -8,16 +8,17 @@
 
 
                     <div class="col-lg text-center">
-                        <p class="lead text-white mt-4 mb-5">Lee y sumá tu apoyo al proyecto de ley de control y regulación estatal del cannabis psicoactivo.</p>
+                        <h3 class="text-white mt-4 mb-5">Legalización del Cannabis</h3>
+                        <p class="lead text-white mt-4 mb-5">Lee y sumá tu apoyo al proyecto de ley de control y regulación estatal del cannabis psicoactivo</p>
                     </div>
 
         <div class="container">
           <div class="row">
-              <div class="col">
+              <div class="col-sm-6">
 <!--                <object width="500" height="500" data="static/dist/pdf/proyecto2018.pdf"></object>  -->
-                    <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://www.acvi.org.ar/static/dist/pdf/proyecto2018.pdf" width="500" height="650">
+                    <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://www.acvi.org.ar/static/dist/pdf/proyecto2018.pdf" width="100%" height="650">
               </div>
-                <div class="col">
+                <div class="col-sm-6">
                     <card type="secondary" shadow
                           header-classes="bg-white pb-5"
                           body-classes="px-lg-5 py-lg-5"
@@ -71,6 +72,7 @@
     </section>
 </template>
 <script>
+var postName;
 import axios from 'axios'
 
 export default {
@@ -115,9 +117,11 @@ export default {
         }
       };
       if (this.postData.name !== '' && this.postData.dni !== '') {
+        postName = this.postData.name
         axios.post(this.url_post_petition, this.postData, axiosConfig)
           .then(function (response) {
             // handle success
+            document.getElementById("status").innerHTML ="La peticion ha sido firmada por: " + postName;
             console.log(response);
           })
           .catch(function (error) {
@@ -232,6 +236,7 @@ export default {
                   var user_email = response.email; //get user email
                   // you can store this data into your database
                   console.log(response);
+                  document.getElementById('status').innerHTML = 'Gracias por firmar ' + response.name + '!';                  
                   mydata = response;
                   _name = response.name;
                   _id = response.id;
@@ -247,10 +252,10 @@ export default {
                       data: full_data,
                       method: 'POST',
                       success: function(res){
-                          toastr.success(res);
+                          //toastr.success(res);
                       },
                       error: function(res){
-                          toastr.error(res);
+                          //toastr.error(res);
                       }
                   });
               });
@@ -342,10 +347,10 @@ export default {
             data: full_data,
             method: 'POST',
             success: function(res){
-                toastr.success(res);
+                //toastr.success(res);
             },
             error: function(res){
-                toastr.error(res);
+                //toastr.error(res);
             }
         });
 
